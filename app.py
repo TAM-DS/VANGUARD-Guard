@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import date, datetime
 
 st.set_page_config(
-    page_title="AI Governance Helper for HR",
+    page_title="VANGUARD-Guard | Enterprise AI Playbook",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -35,9 +35,9 @@ def calculate_overall_risk(tool_id):
     return tool_status(tool_id)[1]
 
 # ---------- Sidebar ----------
-st.sidebar.title("AI Governance Helper")
-st.sidebar.markdown("**For HR teams**")
-st.sidebar.caption("Simple steps to understand and manage AI tools in your organization.")
+st.sidebar.title("VANGUARD-Guard")
+st.sidebar.markdown("**Cross-Functional Enterprise AI Playbook**")
+st.sidebar.caption("Register tools. Review risks. Assign owners. Preserve human authority.")
 page = st.sidebar.radio(
     "Go to",
     ["🏠 Home", "➕ Add a Tool", "📋 My Tools", "⚠️ Assess Risks", "👥 Assign Owners", "📊 Summary"]
@@ -45,11 +45,11 @@ page = st.sidebar.radio(
 
 # ---------- HOME ----------
 if page == "🏠 Home":
-    st.title("AI Governance Helper for HR")
+    st.title("VANGUARD-Guard")
     st.markdown("""
-    This tool helps HR teams **understand and manage AI tools** used in the organization.
+    This workbench helps HR, technology, risk and business leaders **understand and review AI tools** used in the organization.
     
-    You don't need to be a technical expert. We'll guide you step by step.
+    You don't need to be a technical expert. We'll guide you step by step. Records are stored locally; this prototype does not authorize deployment or perform live model monitoring.
     """)
     
     st.info("**What is AI governance?**  \nIt means knowing which AI tools are being used, what risks they create, and who is responsible for them.")
@@ -295,9 +295,9 @@ elif page == "📊 Summary":
         st.download_button(
             "Download summary as CSV",
             df.to_csv(index=False).encode("utf-8"),
-            "ai_governance_summary.csv",
+            "vanguard_guard_summary.csv",
             "text/csv"
         )
 
 st.sidebar.markdown("---")
-st.sidebar.caption("Local-first v1.1: records saved on this computer. Single-user only; use fictional data.")
+st.sidebar.caption("VANGUARD-Guard v1.1 · Local-first, single-user prototype. Use fictional data only.")

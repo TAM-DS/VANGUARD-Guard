@@ -1,17 +1,27 @@
-# AI Governance Toolkit
+# VANGUARD-Guard · Cross-Functional Enterprise AI Playbook
 ### Your organization has an AI strategy. Can it prove who's accountable for the AI already in use?
 
 **Inventory the tools. Identify the risks. Name the owners. Make oversight visible.**
 
 AI adoption is not the same as AI governance. A policy alone cannot tell an organization which tools are in use, what information they process, where human approval is required, or who is accountable when something goes wrong.
 
-**AI Governance Toolkit** is a free, open-source starting point for answering those questions—with a working, local-first Streamlit application and an accompanying governance methodology.
+**VANGUARD-Guard** (formerly **ai-governance-app**) is a free, open-source starting point for answering those questions—with a working, local-first Streamlit application and an accompanying governance methodology.
 
-> **Public Edition · AI Governance Helper v1.1 available**
+> **Public Edition · VANGUARD-Guard v1.1 available**
 >
 > A working **local, single-user** application with SQLite persistence and tested governance rules. **Not a production-ready, multi-user compliance or audit system.** Use synthetic records only; do not enter real employee or confidential client information.
 
 ---
+
+## From text policies to traceable governance records
+
+**The hook:** A friendly, Streamlit-driven risk review workbench for HR, CTOs, CAIOs, risk and cross-functional corporate leaders. Instead of relying on vague policy statements, teams record AI tools, risk explanations, mitigations, named owners and review status in a local SQLite-backed workflow.
+
+**Implemented controls:** Seven-category assessment-completeness checks; a conservative maximum-severity overall risk; visible HIGH-risk flags even on incomplete drafts; required Accountable and Responsible fields; and persistent local records. These are application-level checks, **not database-enforced enterprise RACI constraints**, independent bias detection or live model monitoring.
+
+**Planned engineering edge:** stronger relational and database-level RACI constraints, evidence-linked approval history, prompt-regression detection and bias-evaluation alerts *before* consequential operational deployment. These capabilities are **not implemented in v1.1**.
+
+**Operating principle:** Capability is not authority. A saved assessment is not an approval to deploy or act.
 
 ## Start here: the workbook and the app
 
@@ -43,7 +53,7 @@ Different teams face different requirements:
 
 This project is a **starting point, not a one-size-fits-all mandate**. Its seven-category methodology is an example of a consistent baseline; adopting organizations must independently decide which additional assessments, controls, laws, or approvals apply to their use cases.
 
-**Make it yours:** [Browse the source](https://github.com/TAM-DS/ai-governance-app) · [Download ZIP](https://github.com/TAM-DS/ai-governance-app/archive/refs/heads/main.zip) · [Suggest an improvement](https://github.com/TAM-DS/ai-governance-app/issues)
+**Make it yours:** [Browse the source](https://github.com/TAM-DS/VANGUARD-Guard) · [Download ZIP](https://github.com/TAM-DS/VANGUARD-Guard/archive/refs/heads/main.zip) · [Suggest an improvement](https://github.com/TAM-DS/VANGUARD-Guard/issues)
 
 Released under the [MIT License](LICENSE): you can use, modify, and redistribute the software, including commercially, provided you follow the license terms. **Do not use actual confidential HR or client data in the current local app**, and review security, privacy, and regulatory requirements before organizational deployment.
 
@@ -98,13 +108,13 @@ The Excel Governance Toolkit provides the structured foundation. **An updated do
 
 This toolkit is **vendor-neutral** and does not require purchasing an enterprise governance platform to explore the methodology.
 
-## Run AI Governance Helper v1.1 locally
+## Run VANGUARD-Guard v1.1 locally
 
 **The application source, dependencies, and tests are published in this repository.** The following commands clone and run the local v1.1 application:
 
 ```bash
-git clone https://github.com/TAM-DS/ai-governance-app.git
-cd ai-governance-app
+git clone https://github.com/TAM-DS/VANGUARD-Guard.git
+cd VANGUARD-Guard
 
 python3 -m venv .venv
 source .venv/bin/activate
@@ -165,7 +175,7 @@ The goal is a **useful, approachable governance tool that improves through real-
 
 **Engineering principle:** make the basic workflow dependable, validate the controls, and expand only when users have a demonstrated need. Public release notes will distinguish *implemented and tested*, *in progress*, and *planned*.
 
-**Want to help shape it?** Open a [GitHub Issue](https://github.com/TAM-DS/ai-governance-app/issues) with a use case, bug report, accessibility improvement, or feature suggestion. Please do not post sensitive employee or client information.
+**Want to help shape it?** Open a [GitHub Issue](https://github.com/TAM-DS/VANGUARD-Guard/issues) with a use case, bug report, accessibility improvement, or feature suggestion. Please do not post sensitive employee or client information.
 
 ### Future enhancement: AI Spend & Value
 
