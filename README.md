@@ -1,4 +1,20 @@
 # VANGUARD-Guard · Cross-Functional Enterprise AI Playbook
+
+[![Tests](https://github.com/TAM-DS/VANGUARD-Guard/actions/workflows/ci.yml/badge.svg)](https://github.com/TAM-DS/VANGUARD-Guard/actions/workflows/ci.yml)
+
+## Validation and review
+
+**November 12, 2026:** 34 tests passed locally on Python 3.12. CI runs the suite on Python 3.11, 3.12, and 3.13; use the badge/run link for current remote results.
+
+Assessment completeness; duplicate-category HIGH risk preservation; exact tool deletion; persistence/upsert; and a Streamlit registration-to-new-session test.
+
+```bash
+python -m pip install -r requirements.txt pytest
+python -m pytest -q
+```
+
+This remains a local, single-user governance workbench. It does not authenticate approvers, authorize deployment, or monitor models.
+
 ### Your organization has an AI strategy. Can it prove who's accountable for the AI already in use?
 
 **Inventory the tools. Identify the risks. Name the owners. Make oversight visible.**
@@ -232,3 +248,4 @@ AI Architect | Enterprise Cloud Architecture | AI Strategy & Consulting
 [Professional site](https://tam-ds.github.io/) · [LinkedIn](https://www.linkedin.com/in/tracymanning/) · [GitHub](https://github.com/TAM-DS)
 
 **License:** [MIT](LICENSE). Free to use, modify, and share under the license terms.
+

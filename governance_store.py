@@ -40,16 +40,17 @@ def save(kind, record_id, value):
 
 def delete_tool(tool_id):
     with connection() as conn:
-        conn.execute("DELETE FROM records WHERE (kind='tools' AND record_id=?) OR (kind='raci' AND record_id=?) OR (kind='risks' AND record_id LIKE ?)", (tool_id, tool_id, tool_id + '::%'))
+        conn.execute("DELETE FROM records WHERE (kind='tools' AND record_id=?) OR (kind='raci' AND record_id=?) OR (kind='risks' AND substr(record_id, 1, length(?)) = ?)", (tool_id, tool_id, tool_id + '::', tool_id + '::'))
 
 
 def status(risks):
     """Returns (assessed_state, overall_risk, high_flag). Partial HIGH stays visible."""
     by_category = {r.get("category"): r for r in risks if r.get("category") in CATEGORIES}
-    high = any(r.get("score") == "HIGH" for r in by_category.values())
-    complete = len(by_category) == len(CATEGORIES) and all(
-        r.get("score") in LEVELS and str(r.get("rationale", "")).strip()
-        and str(r.get("mitigation", "")).strip() and str(r.get("owner", "")).strip()
+    high = any(r.get("score") == "HIGH" for r in risks)
+    unique = len(risks) == len(by_category)
+    complete = unique and len(by_category) == len(CATEGORIES) and all(
+        r.get("score") in LEVELS and valid_text(r.get("rationale"))
+        and valid_text(r.get("mitigation")) and valid_text(r.get("owner"))
         and valid_date(r.get("date")) for r in by_category.values()
     )
     if not complete:
@@ -66,5 +67,10 @@ def valid_date(value):
         return False
 
 
+def valid_text(value):
+    return isinstance(value, str) and bool(value.strip())
+
+
 def valid_raci(accountable, responsible):
-    return bool(accountable.strip() and responsible.strip())
+    return valid_text(accountable) and valid_text(responsible)
+
